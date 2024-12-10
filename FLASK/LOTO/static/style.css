@@ -1,0 +1,33 @@
+body {
+    background-color: #a1cbf5; /* Color claro para el fondo */
+    font-family: 'Arial', sans-serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+table th, table td {
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    text-overflow: ellipsis; /* Muestra "..." si el texto es demasiado largo */
+    overflow: hidden;
+}
+
+table th:last-child, table td:last-child {
+    max-width: 150px; /* Ajusta el ancho máximo de la columna de correos */
+}

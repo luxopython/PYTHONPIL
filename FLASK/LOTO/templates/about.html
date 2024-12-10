@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Acerca de{% endblock %}
+
+{% block content %}
+<h2>Sobre Nosotros</h2>
+<p>A continuación, presentamos a los miembros del equipo:</p>
+
+<!-- Tabla estilizada -->
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Rol</th>
+                <th>Correo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Juan Pérez</td>
+                <td>Desarrollador</td>
+                <td>juan@example.com</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>María López</td>
+                <td>Diseñadora</td>
+                <td>maria@example.com</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Pedro González</td>
+                <td>Administrador</td>
+                <td>pedro@example.com</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

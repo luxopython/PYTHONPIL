@@ -1,0 +1,13 @@
+# Entornos virtuales
+venv/
+env/
+
+# Archivos del editor
+.vscode/
+
+# Archivos Python compilados
+*.pyc
+__pycache__/
+
+# Configuraciones locales
+.flaskenv

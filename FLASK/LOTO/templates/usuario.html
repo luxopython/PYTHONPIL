@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Usuarios{% endblock %}
+
+{% block content %}
+<h2>Gestión de Usuarios</h2>
+
+<!-- Formulario para agregar usuarios -->
+<form action="/usuarios" method="post" class="mb-3">
+    <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" id="name" name="name" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Correo</label>
+        <input type="email" id="email" name="email" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Agregar Usuario</button>
+</form>
+
+<!-- Lista de usuarios -->
+<h3>Lista de Usuarios</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for usuario in usuarios %}
+        <tr>
+            <td>{{ usuario.id }}</td>
+            <td>{{ usuario.nombre }}</td>
+            <td>{{ usuario.correo }}</td>
+            <td>
+                <form action="/delete-user/{{ usuario.id }}" method="post" style="display: inline;">
+                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
