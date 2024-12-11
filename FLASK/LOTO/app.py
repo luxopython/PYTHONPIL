@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for
-
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
+import os  # Para acceder a variables de entorno
 
 app = Flask(__name__)
 
-# Configuración de la base de datos PostgreSQL
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://kaeshark:ellagarto123@localhost/lotto'
+# Configuración de la base de datos PostgreSQL desde variable de entorno
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')  # Leer la URL desde la variable de entorno
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Inicializar la base de datos
@@ -54,7 +54,6 @@ def db_check():
         return "¡Conexión a PostgreSQL exitosa!"
     except Exception as e:
         return f"Error al conectar con la base de datos: {e}"
-    
 
 @app.route('/usuarios', methods=['GET', 'POST'])
 def usuarios():
@@ -85,9 +84,6 @@ def delete_user(user_id):
             return f"Usuario con ID {user_id} no encontrado."
     except Exception as e:
         return f"Error al eliminar usuario: {e}"
-
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)
